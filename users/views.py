@@ -6,11 +6,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm
+import requests
 
 # Create your views here.
 
 def home(request):
-	return render(request, 'users/home.html')
+	response = requests.get('https://fakestoreapi.com/products').json
+	return render(request, 'users/home.html',{'response': response})
 
 def registerPage(request):
 	if request.user.is_authenticated:
