@@ -7,9 +7,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm
 import requests
+import json
 
 # Create your views here.
 
+@login_required(login_url='login')
 def home(request):
 	response = requests.get('https://fakestoreapi.com/products').json
 	return render(request, 'users/home.html',{'response': response})

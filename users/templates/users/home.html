@@ -11,30 +11,168 @@
     <title>Home</title>
 </head>
 <body>
+  <div class="container-fluid">
+    <h2><strong class="text-danger"><marquee>Welcome...! Thanks for Connecting with Us</marquee></strong></h2><hr>
    
-    <!-- 1st Product Slider -->
-   <div class="container">
-      <h2 class="text-danger"><marquee>Welcome...! Thanks for Connecting with Us</marquee></h2>
-      <hr>
-      <!-- Slider 1 -->
-      <div class="owl-carousel" id="slider1">
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/1.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 1</span><br><span class="fs-5">Rs. 500</span></div></a>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/2.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 2</span><br><span class="fs-5">Rs. 300</span></div></a>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/3.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 3</span><br><span class="fs-5">Rs. 100</span></div></a>
-       <hr>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/4.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 4</span><br><span class="fs-5">Rs. 700</span></div></a>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/5.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 5</span><br><span class="fs-5">Rs. 500</span></div></a>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/6.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 6</span><br><span class="fs-5">Rs. 400</span></div></a>
-       <hr>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/7.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 7</span><br><span class="fs-5">Rs. 500</span></div></a>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/8.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 8</span><br><span class="fs-5">Rs. 300</span></div></a>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/9.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 9</span><br><span class="fs-5">Rs. 600</span></div></a>
-       <hr>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/10.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 10</span><br><span class="fs-5">Rs. 900</span></div></a>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/11.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 11</span><br><span class="fs-5">Rs. 100</span></div></a>
-       <a href="{% url 'home' %}" class="btn"><div class="item"><img src="{% static 'users/images/12.jpg' %}" alt="" height="200px"><span class="fw-bold">Product 12</span><br><span class="fs-5">Rs. 200</span></div></a>
+    <form action="{% url 'logout' %}" method="post">
+         {% csrf_token %}
+       <button class="btn btn-primary" type="submit" value="Logout">LOGOUT</button>
+    </form>
+
+    <div class="owl-carousel" id="slider1">
+      {% for i in response %}         
+    
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg" height="300px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <span class="fs-5">{{i.price}}</span>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'home' %}" class="btn btn-warning text-light">Add to Cart</a>
+              <a href="{% url 'home' %}" class="btn btn-danger text-light mx-3">Buy Now...!</a>
+            </div>
+          </div>
+        </div> 
       </div>
-   </div>
+      {% endfor %}
+    </div>
+ </div>
    <script src="{% static 'users/js/jquery.js' %}"></script>
    <script src="{% static 'users/js/popper.js' %}"></script>
    <script src="{% static 'users/js/all.min.js' %}"></script>
